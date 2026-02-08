@@ -1,54 +1,33 @@
-# Questify Task Manager (Backend-Only)
+# FastAPI Training API
 
-A minimal Node.js API built for local execution and containerization practice. This version is intentionally simplified: no frontend, no database, and in-memory data only.
-
-## Overview
-- **Service**: single Express API
-- **State**: in-memory (resets on restart)
-- **External dependencies**: none
+A simple backend API built for containerization training. This service exposes a few HTTP endpoints and keeps data in memory only.
 
 ## Requirements
-- Node.js 18+
+- Python 3.11+
 
-## Run Locally
+## Setup
+Install dependencies:
+
 ```bash
-cd backend
-npm install
-npm start
+python -m pip install -r requirements.txt
 ```
 
-API runs at `http://localhost:4000`.
+## Run
+Start the API server:
 
-## Configuration
-Optional environment variables:
-- `PORT` (default `4000`)
-- `FRONTEND_ORIGIN` (default `*`)
-
-## API
-All task endpoints require a bearer token returned by login/register.
-
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `POST /api/auth/logout`
-- `GET /api/auth/me`
-- `GET /api/tasks`
-- `POST /api/tasks`
-- `DELETE /api/tasks/:id`
-
-## Example
-Register:
 ```bash
-curl -X POST http://localhost:4000/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"email":"demo@example.com","password":"secret123"}'
+uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-Use the token:
-```bash
-curl http://localhost:4000/api/tasks \
-  -H "Authorization: Bearer <token>"
-```
+## Port
+The API listens on port `8000`.
+
+## Endpoints
+- `GET /health`
+- `GET /tasks`
+- `POST /tasks`
+- `DELETE /tasks/{task_id}`
 
 ## Notes
-- This service is stateless; all data is stored in memory.
-- For persistence, add a database layer.
+- All data is stored in memory and resets on restart.
+- No database or external services are required.
