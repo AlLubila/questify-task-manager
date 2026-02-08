@@ -1,51 +1,24 @@
-# Questify Backend
+# Questify Backend (Simplified)
 
-Express + Prisma API for authentication and tasks.
+Simple Express API with in-memory data. No database required.
 
 ## Requirements
-- Docker (recommended) or Node.js 18+
-- PostgreSQL 14+
+- Node.js 18+
 
-## Docker
-Use the root `docker-compose.yml`:
-
-```bash
-docker-compose up --build
-```
-
-## Local Setup
-1. Install dependencies:
-
+## Start
 ```bash
 npm install
+npm start
 ```
 
-2. Configure environment variables (already provided in `.env` for local use):
-
-- `DATABASE_URL`
-- `SESSION_SECRET`
-- `FRONTEND_ORIGIN`
-- `PORT`
-
-3. Run migrations:
-
-```bash
-npx prisma migrate dev
-```
-
-4. Start the API:
-
-```bash
-npm run dev
-```
-
-## Scripts
-- `npm run dev` watch mode
-- `npm run start` production mode
-- `npm run prisma:migrate` deploy migrations
-- `npm run prisma:generate` generate Prisma client
+## Environment
+- `PORT` (default 4000)
+- `FRONTEND_ORIGIN` (default `*`)
 
 ## API
+Authentication returns a token that must be sent as:
+`Authorization: Bearer <token>`
+
 - `POST /api/auth/register`
 - `POST /api/auth/login`
 - `POST /api/auth/logout`
