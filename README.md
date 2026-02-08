@@ -8,8 +8,7 @@ Questify is a lightweight Trello/Todo-style task manager built as a full-stack S
 - **Database**: PostgreSQL
 
 ## Requirements
-- Node.js 18+
-- PostgreSQL 14+
+- Docker (recommended) or Node.js 18+ + PostgreSQL 14+
 
 ## Project Structure
 - `frontend/` React application
@@ -21,7 +20,14 @@ Questify is a lightweight Trello/Todo-style task manager built as a full-stack S
 - Backend API: `4000`
 - PostgreSQL: `5432`
 
-## Run Locally
+## Quick Start (Docker)
+```bash
+docker-compose up --build
+```
+
+Open the app in your browser at `http://localhost:5173`.
+
+## Run Locally (without Docker)
 ### 1) Database
 Create a local database named `questify` and ensure your Postgres user/password match `backend/.env`.
 
@@ -76,3 +82,4 @@ Frontend (`frontend/.env`):
 - Authentication is session-based (no JWT, no external auth providers).
 - API is RESTful and scoped to the logged-in user.
 - Prisma migrations are included in `backend/prisma/migrations`.
+- `docker-compose up --build` runs PostgreSQL and applies migrations automatically.

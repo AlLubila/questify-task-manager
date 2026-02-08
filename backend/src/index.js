@@ -15,7 +15,7 @@ const prisma = new PrismaClient();
 
 const PORT = Number(process.env.PORT || 4000);
 const SESSION_SECRET = process.env.SESSION_SECRET || "change-me-in-prod";
-const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "http://127.0.0.1:5173";
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "http://127.0.0.1:5173,http://localhost:5173";
 const DATABASE_URL = process.env.DATABASE_URL || "postgresql://postgres:postgres@127.0.0.1:5432/questify";
 
 const PgSession = connectPgSimple(session);
@@ -66,3 +66,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Questify API listening on port ${PORT}`);
 });
+

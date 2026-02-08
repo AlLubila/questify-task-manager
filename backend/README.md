@@ -3,10 +3,17 @@
 Express + Prisma API for authentication and tasks.
 
 ## Requirements
-- Node.js 18+
+- Docker (recommended) or Node.js 18+
 - PostgreSQL 14+
 
-## Setup
+## Docker
+Use the root `docker-compose.yml`:
+
+```bash
+docker-compose up --build
+```
+
+## Local Setup
 1. Install dependencies:
 
 ```bash
