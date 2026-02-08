@@ -1,31 +1,21 @@
-# Questify Tasks (Frontend Only)
+# Questify Task API
 
-A simple task management interface built with React and Vite. Data is stored in memory on the client side.
+## Prérequis
+- Java 17
+- Maven 3.9+
 
-## Requirements
-- Node.js 18+
-
-## Install
+## Lancer en local
 ```bash
-npm install
+mvn spring-boot:run
 ```
 
-## Run (dev server)
+## Port exposé
+- 8080
+
+## Build Maven
 ```bash
-npm run dev
+mvn clean package
 ```
 
-## Build
-```bash
-npm run build
-```
-
-## Build Output
-The production build is generated in the `dist/` folder.
-
-## Local Port
-The dev server runs on `http://localhost:5173`.
-
-## Notes
-- Frontend only, no backend services.
-- Data resets on page refresh.
+## JAR généré
+- `target/task-api-1.0.0.jar`

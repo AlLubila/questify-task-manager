@@ -1,5 +1,13 @@
-node_modules/
-dist/
+# Java / Maven
+/target/
+*.class
+*.jar
+
+# IDE
+/.idea/
+/.vscode/
+*.iml
+
+# OS
 .DS_Store
-.vscode/
-.env
+Thumbs.db
