@@ -1,14 +1,5 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.egg-info/
-.venv/
-
-# Envs
-.env
-
-# OS
+node_modules/
+dist/
 .DS_Store
-Thumbs.db
+.vscode/
+.env

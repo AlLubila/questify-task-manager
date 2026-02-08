@@ -1,33 +1,31 @@
-# FastAPI Training API
+# Questify Tasks (Frontend Only)
 
-A simple backend API built for containerization training. This service exposes a few HTTP endpoints and keeps data in memory only.
+A simple task management interface built with React and Vite. Data is stored in memory on the client side.
 
 ## Requirements
-- Python 3.11+
+- Node.js 18+
 
-## Setup
-Install dependencies:
-
+## Install
 ```bash
-python -m pip install -r requirements.txt
+npm install
 ```
 
-## Run
-Start the API server:
-
+## Run (dev server)
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+npm run dev
 ```
 
-## Port
-The API listens on port `8000`.
+## Build
+```bash
+npm run build
+```
 
-## Endpoints
-- `GET /health`
-- `GET /tasks`
-- `POST /tasks`
-- `DELETE /tasks/{task_id}`
+## Build Output
+The production build is generated in the `dist/` folder.
+
+## Local Port
+The dev server runs on `http://localhost:5173`.
 
 ## Notes
-- All data is stored in memory and resets on restart.
-- No database or external services are required.
+- Frontend only, no backend services.
+- Data resets on page refresh.
