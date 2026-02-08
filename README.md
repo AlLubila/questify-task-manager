@@ -1,18 +1,14 @@
-# Questify Task Manager (Simplified)
+# Questify Task Manager (Backend-Only)
 
-This is a minimal backend-only project for learning Docker basics.
+A minimal Node.js API built for local execution and containerization practice. This version is intentionally simplified: no frontend, no database, and in-memory data only.
 
-## Goals
-Practice:
-- writing a simple Dockerfile
-- `docker build`
-- `docker run` (single container)
-- exposing a port
-- `docker push`
+## Overview
+- **Service**: single Express API
+- **State**: in-memory (resets on restart)
+- **External dependencies**: none
 
-## Stack
-- Node.js + Express
-- In-memory data (no database)
+## Requirements
+- Node.js 18+
 
 ## Run Locally
 ```bash
@@ -21,9 +17,25 @@ npm install
 npm start
 ```
 
-API runs on `http://localhost:4000`.
+API runs at `http://localhost:4000`.
 
-## Example Usage
+## Configuration
+Optional environment variables:
+- `PORT` (default `4000`)
+- `FRONTEND_ORIGIN` (default `*`)
+
+## API
+All task endpoints require a bearer token returned by login/register.
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/me`
+- `GET /api/tasks`
+- `POST /api/tasks`
+- `DELETE /api/tasks/:id`
+
+## Example
 Register:
 ```bash
 curl -X POST http://localhost:4000/api/auth/register \
@@ -31,16 +43,12 @@ curl -X POST http://localhost:4000/api/auth/register \
   -d '{"email":"demo@example.com","password":"secret123"}'
 ```
 
-Use the returned token:
+Use the token:
 ```bash
 curl http://localhost:4000/api/tasks \
   -H "Authorization: Bearer <token>"
 ```
 
-## Docker (single container)
-A simple Dockerfile is provided at the repo root.
-
-```bash
-docker build -t questify-backend .
-docker run -p 4000:4000 questify-backend
-```
+## Notes
+- This service is stateless; all data is stored in memory.
+- For persistence, add a database layer.
